@@ -4,12 +4,12 @@ import JitsiMeetSDK
 class JitsiMeetViewController: UIViewController {
   var conferenceOptions: JitsiMeetConferenceOptions?
   var resolver: RCTPromiseResolveBlock?
-  var jitsiMeetView = JitsiMeetView()
+  var jitsiMeetView: JitsiMeetView?
 
   override func viewDidLoad() {
-    
-    jitsiMeetView.join(conferenceOptions)
-    jitsiMeetView.delegate = self
+    jitsiMeetView = JitsiMeetView()
+    jitsiMeetView?.join(conferenceOptions)
+    jitsiMeetView?.delegate = self
     
     view = jitsiMeetView
   }
